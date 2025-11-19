@@ -146,216 +146,223 @@
 (function(){
   // ---------- Data (embedded directly – no document.write) ----------
   const FIXED_CARDS = [
-  
+
   {
-    "term": "Voltage (V)",
-    "definition": "The electrical pressure or potential difference that causes electrons to flow, often symbolized as E (electromotive force) or V, and is measured in Volts (V) [4-6]. In aircraft, standard DC voltages are typically 14V or 28V [3, 4, 7, 8].",
-    "analogy": "The height of a waterfall or the water pressure in a hose [4-6, 9].",
-    "unit": "Volt (V)",
-    "tags": "DC 101|fundamentals|measurement"
+    "term": "Binary Number System",
+    "definition": "A base-2 number system using only two digits (0 and 1) to represent all data in digital systems. Binary 1 typically represents HIGH voltage, and binary 0 represents LOW voltage.",
+    "analogy": "Like a light switch with only ON (1) or OFF (0) positions - no in-between states.",
+    "unit": "Digital Fundamentals",
+    "tags": "binary|fundamentals|number_systems"
   },
   {
-    "term": "Current (I)",
-    "definition": "The flow rate of electrons (electrical charge) through a conductor, measured in Amperes (A) [7, 9-11]. Controlling current is essential for safe avionics operation [12].",
-    "analogy": "The flow rate or amount of water moving through a pipe or hose [9, 10, 13].",
-    "unit": "Ampere (A)",
-    "tags": "DC 101|fundamentals|measurement"
+    "term": "Bit",
+    "definition": "The smallest unit of digital data, representing a single binary digit (0 or 1). All digital information is built from combinations of bits.",
+    "analogy": "A single yes/no answer or a single light switch position.",
+    "unit": "Digital Fundamentals",
+    "tags": "binary|fundamentals|data_structure"
   },
   {
-    "term": "Resistance (R)",
-    "definition": "The opposition or 'friction' to electron flow through a material, measured in Ohms ($\\Omega$) [9, 13-15]. Resistance is used to control current and protect sensitive avionics components [12, 16].",
-    "analogy": "Rocks in a riverbed that impede water flow, or the diameter of a hose (smaller hose = higher resistance) [9, 13, 14].",
-    "unit": "Ohm ($\\Omega$)",
-    "tags": "DC 101|fundamentals|measurement"
+    "term": "Byte",
+    "definition": "A group of 8 bits that forms a standard unit of digital data. One byte can represent 256 different values (0-255).",
+    "analogy": "Eight light switches grouped together to create more complex on/off patterns.",
+    "unit": "Digital Fundamentals",
+    "tags": "binary|fundamentals|data_structure"
   },
   {
-    "term": "Ohm’s Law (V=I×R)",
-    "definition": "The fundamental mathematical relationship describing voltage, current, and resistance: Voltage equals Current multiplied by Resistance (V = I × R) [2, 10, 12, 17, 18]. This is the most important tool for troubleshooting electrical issues [12, 19].",
-    "analogy": "The backbone of every electrical problem solved in a small aircraft [19].",
-    "unit": "DC 102 (Formula)",
-    "tags": "formula|troubleshooting"
+    "term": "Hexadecimal",
+    "definition": "A base-16 number system using digits 0-9 and letters A-F. Commonly used to represent binary data more compactly (4 bits = 1 hex digit).",
+    "analogy": "A shorthand notation that makes long binary numbers easier for technicians to read and work with.",
+    "unit": "Number Systems",
+    "tags": "hexadecimal|number_systems|conversion"
   },
   {
-    "term": "Ohm’s Law Triangle",
-    "definition": "A visual memory aid used by technicians where V is placed at the top, and I and R are at the base; covering the desired variable reveals the correct formula [20, 21].",
-    "analogy": "A fast, foolproof method to recall the three core electrical relationships [20].",
-    "unit": "DC 102 (Tool)",
-    "tags": "formula|tool"
+    "term": "Octal",
+    "definition": "A base-8 number system using digits 0-7. Used in ARINC 429 for data labels (3 bits = 1 octal digit).",
+    "analogy": "A traditional aviation notation system still used for ARINC 429 label identification.",
+    "unit": "Number Systems",
+    "tags": "octal|ARINC_429|number_systems"
   },
   {
-    "term": "Ohm's Law (Current Formula)",
-    "definition": "A derived formula stating that Current equals Voltage divided by Resistance (I = V $\\div$ R) [10, 17, 22]. This is used to calculate the electrical load to select proper circuit protection [23].",
-    "analogy": "Finding the flow rate when you know the pressure and the size of the restriction [17].",
-    "unit": "DC 102 (Formula)",
-    "tags": "formula|troubleshooting"
+    "term": "AND Gate",
+    "definition": "A digital logic gate that outputs 1 (HIGH) only when ALL inputs are 1. If any input is 0, the output is 0.",
+    "analogy": "Like requiring two keys to open a safe - both must be present for access.",
+    "unit": "Logic Gates",
+    "tags": "logic_gates|AND|truth_table"
   },
   {
-    "term": "Ohm's Law (Resistance Formula)",
-    "definition": "A derived formula stating that Resistance equals Voltage divided by Current (R = V $\\div$ I) [14, 17, 22]. This is used to determine the resistance of components like light bulbs or heating elements [14, 20].",
-    "analogy": "Finding the size of the obstruction when you know the pressure and the flow rate [17].",
-    "unit": "DC 102 (Formula)",
-    "tags": "formula|troubleshooting"
+    "term": "OR Gate",
+    "definition": "A digital logic gate that outputs 1 (HIGH) if ANY input is 1. The output is 0 only when all inputs are 0.",
+    "analogy": "Like a room with two light switches - either switch can turn on the light.",
+    "unit": "Logic Gates",
+    "tags": "logic_gates|OR|truth_table"
   },
   {
-    "term": "Electrical Power (P)",
-    "definition": "The rate of doing work or consuming energy in a circuit, calculated primarily using P = V $\\times$ I [24-27]. Power calculations are critical for proper wire sizing and circuit breaker selection [2, 25, 28, 29].",
-    "analogy": "The volume or amount of work being produced, or the energy consumed by a device [24, 30, 31].",
-    "unit": "Watt (W)",
-    "tags": "DC 102|calculations|safety"
+    "term": "NOT Gate (Inverter)",
+    "definition": "A digital logic gate that inverts its input: 1 becomes 0, and 0 becomes 1. Also called an inverter.",
+    "analogy": "Like a light switch that turns OFF when you push it ON, and vice versa.",
+    "unit": "Logic Gates",
+    "tags": "logic_gates|NOT|inverter"
   },
   {
-    "term": "Watt's Law (Derived)",
-    "definition": "Alternative formulas derived from Ohm's Law and Power, such as P = I² $\\times$ R and P = V² $\\div$ R, useful when current or voltage measurements are difficult to obtain [25, 26, 32, 33].",
-    "analogy": "Alternative routes to calculate the work being done if you can't measure all the basic variables [32].",
-    "unit": "DC 102 (Formula)",
-    "tags": "formula|calculations"
+    "term": "NAND Gate",
+    "definition": "A combination of AND followed by NOT. Outputs 0 only when all inputs are 1; otherwise outputs 1. Called a 'universal gate' because any logic function can be built from NAND gates alone.",
+    "analogy": "The opposite of AND - says NO only when both conditions are met.",
+    "unit": "Logic Gates",
+    "tags": "logic_gates|NAND|truth_table"
   },
   {
-    "term": "Conductor",
-    "definition": "Materials, typically metals like copper or aluminum, that allow electricity to flow easily because they have many free valence electrons and low resistance [14, 15, 34, 35].",
-    "analogy": "A clear, wide highway for the smooth flow of electrical current [34].",
-    "unit": "DC 101 (Material)",
-    "tags": "fundamentals|materials"
+    "term": "XOR Gate (Exclusive OR)",
+    "definition": "A logic gate that outputs 1 only when inputs are DIFFERENT (one is 0, one is 1). Outputs 0 when inputs are the same.",
+    "analogy": "Like a dispute detector - triggers only when two people disagree.",
+    "unit": "Logic Gates",
+    "tags": "logic_gates|XOR|truth_table"
   },
   {
-    "term": "Insulator",
-    "definition": "Materials, such as rubber or plastic, that block or highly resist the flow of electricity, used in avionics for wire jackets and safety barriers [14, 34, 36].",
-    "analogy": "A physical barrier or safety fence confining the electrical current to its intended path [34, 37].",
-    "unit": "DC 101 (Material)",
-    "tags": "fundamentals|materials"
+    "term": "ARINC 429",
+    "definition": "The most common avionics databus standard. Uses point-to-point, unidirectional transmission with one transmitter and multiple receivers on twisted shielded pair wiring.",
+    "analogy": "Like a one-way radio broadcast - one station transmits, many receivers listen.",
+    "unit": "Databus Standards",
+    "tags": "ARINC_429|databus|architecture"
   },
   {
-    "term": "Semiconductor",
-    "definition": "Materials, like silicon, with electrical properties between conductors and insulators, used in modern solid-state electronics like transistors and diodes where conductivity can be controlled [14, 34, 37, 38].",
-    "analogy": "The basis of all modern electronic components that can act as a controlled switch [34].",
-    "unit": "DC 101 (Material)",
-    "tags": "fundamentals|materials|devices"
+    "term": "ARINC 429 Word Format",
+    "definition": "A 32-bit data word containing: Label (bits 1-8), SDI (bits 9-10), Data (bits 11-29), SSM (bits 30-31), and Parity (bit 32).",
+    "analogy": "A standardized envelope format where every piece of data has the same structure.",
+    "unit": "ARINC 429",
+    "tags": "ARINC_429|word_format|data_structure"
   },
   {
-    "term": "Electron",
-    "definition": "Tiny negatively charged particles orbiting the atom's nucleus [39, 40]. The directed movement of valence electrons from atom to atom creates electrical current [41, 42].",
-    "analogy": "The moving charge carriers that make up electricity [41].",
-    "unit": "DC 101 (Physics)",
-    "tags": "atomic_theory"
+    "term": "ARINC 429 Bit Rates",
+    "definition": "Two standard speeds: Low Speed at 12.5 kbps (kilobits per second) and High Speed at 100 kbps.",
+    "analogy": "Like having economy and express mail options for data delivery.",
+    "unit": "ARINC 429",
+    "tags": "ARINC_429|bit_rate|specifications"
   },
   {
-    "term": "Proton",
-    "definition": "Positively charged particle located within the nucleus of an atom [39, 40]. Protons contribute to the mass and stability of the atom [42].",
-    "analogy": "A fundamental positive charge at the core of matter [39].",
-    "unit": "DC 101 (Physics)",
-    "tags": "atomic_theory"
+    "term": "ARINC 429 Signal Levels",
+    "definition": "Uses three voltage states for signaling: HIGH (+10V), NULL (0V), and LOW (-10V). This tri-state approach provides good noise immunity.",
+    "analogy": "Three positions: positive, neutral, and negative - like a gear selector.",
+    "unit": "ARINC 429",
+    "tags": "ARINC_429|signal_levels|voltage"
   },
   {
-    "term": "Series Circuit",
-    "definition": "A configuration where components are connected end-to-end in a single, unbroken path [2, 43-46]. The same current flows through all components [43, 44, 46-48].",
-    "analogy": "A single chain of components; one failure stops the entire circuit [43, 46, 49].",
-    "unit": "DC 103 (Circuit Type)",
-    "tags": "circuit_type"
+    "term": "SSM (Sign/Status Matrix)",
+    "definition": "Bits 30-31 in an ARINC 429 word that indicate data validity: Normal Operation, No Computed Data, Functional Test, or Failure Warning.",
+    "analogy": "A traffic light for data - green (valid), yellow (caution), red (invalid).",
+    "unit": "ARINC 429",
+    "tags": "ARINC_429|SSM|data_validity"
   },
   {
-    "term": "Parallel Circuit",
-    "definition": "A configuration where components are connected across common voltage points, offering multiple independent current paths [2, 50-53]. The voltage is the same across all branches [53-56].",
-    "analogy": "Modern household wiring or aircraft distribution where turning off one device doesn't affect others [54, 57, 58].",
-    "unit": "DC 103 (Circuit Type)",
-    "tags": "circuit_type"
+    "term": "MIL-STD-1553",
+    "definition": "A military-standard databus using multi-drop topology with dual redundant buses. Operates at 1 Mbps with command/response protocol controlled by a Bus Controller.",
+    "analogy": "Like a classroom where the teacher (Bus Controller) calls on students (Remote Terminals) to speak.",
+    "unit": "Databus Standards",
+    "tags": "MIL_STD_1553|databus|military"
   },
   {
-    "term": "Complex Circuit",
-    "definition": "A combination of both series and parallel elements, common in avionics installations where safety and independent operation are required [2, 53-55].",
-    "analogy": "Wiring the power wire on multiple components in parallel, which then runs in series to a circuit breaker [54].",
-    "unit": "DC 103 (Circuit Type)",
-    "tags": "circuit_type"
+    "term": "Bus Controller (BC)",
+    "definition": "The device that controls all communication on a MIL-STD-1553 bus. It initiates all data transfers by sending commands to Remote Terminals.",
+    "analogy": "The air traffic controller of the databus - directs all traffic flow.",
+    "unit": "MIL-STD-1553",
+    "tags": "MIL_STD_1553|bus_controller|architecture"
   },
   {
-    "term": "Kirchhoff's Voltage Law (KVL)",
-    "definition": "States that the sum of all voltage drops around any closed loop in a circuit must equal the total supply voltage (or sum to zero) [2, 43, 59-61]. Essential for ensuring components receive correct voltage [62].",
-    "analogy": "The source voltage must be entirely consumed by the components in the loop [63].",
-    "unit": "DC 103 (Law)",
-    "tags": "law|series|troubleshooting"
+    "term": "Remote Terminal (RT)",
+    "definition": "A device connected to a MIL-STD-1553 bus that responds to commands from the Bus Controller. Up to 31 RTs can be on one bus.",
+    "analogy": "Like a phone extension that only speaks when called by the operator.",
+    "unit": "MIL-STD-1553",
+    "tags": "MIL_STD_1553|remote_terminal|architecture"
   },
   {
-    "term": "Kirchhoff's Current Law (KCL)",
-    "definition": "States that the total current entering a junction must equal the total current leaving the junction [2, 54, 64-66]. This ensures current is properly distributed across all parallel branches [67].",
-    "analogy": "A rule ensuring no current is lost or created at a junction point where wires meet [67].",
-    "unit": "DC 103 (Law)",
-    "tags": "law|parallel|troubleshooting"
+    "term": "Dual Redundant Bus",
+    "definition": "A fault-tolerant design using two separate bus cables. If one fails, communication continues on the backup bus without interruption.",
+    "analogy": "Like having a spare tire - if one fails, you can keep going.",
+    "unit": "MIL-STD-1553",
+    "tags": "MIL_STD_1553|redundancy|fault_tolerance"
   },
   {
-    "term": "Series Resistance Formula",
-    "definition": "Total resistance in a series circuit is the sum of all individual resistances: R_total = R₁ + R₂ + R₃ + ... [43, 49, 51, 68]. Adding components increases the total resistance [49, 68].",
-    "analogy": "Total friction is the sum of every rough spot the current encounters in its single path [68].",
-    "unit": "DC 103 (Formula)",
-    "tags": "formula|series"
+    "term": "Twisted Pair Wiring",
+    "definition": "Two insulated wires twisted together, used for differential signaling. The twisting cancels electromagnetic interference (EMI).",
+    "analogy": "Like noise-canceling headphones - the twist cancels out unwanted signals.",
+    "unit": "Wiring",
+    "tags": "wiring|EMI|differential_signaling"
   },
   {
-    "term": "Parallel Resistance Formula",
-    "definition": "Total resistance is the reciprocal of the sum of the individual reciprocals: 1/R_total = 1/R₁ + 1/R₂ + ... [54, 55, 69, 70]. The total resistance is always less than the smallest individual resistor [54, 69, 71].",
-    "analogy": "Adding multiple paths makes it easier for the current to flow, reducing the overall resistance [69].",
-    "unit": "DC 103 (Formula)",
-    "tags": "formula|parallel"
+    "term": "Differential Signaling",
+    "definition": "A method where data is transmitted as the voltage difference between two wires. Provides excellent noise immunity because interference affects both wires equally.",
+    "analogy": "Measuring the height difference between two people, not their absolute heights.",
+    "unit": "Signal Transmission",
+    "tags": "differential|signal|noise_immunity"
   },
   {
-    "term": "Open Circuit",
-    "definition": "A fault caused by a break or disconnection in the current path, resulting in infinite resistance (O.L.) and zero current flow (0 Amps) [2, 72-74].",
-    "analogy": "A dammed river or a broken wire; the current stops completely [72, 75].",
-    "unit": "DC 103 (Fault)",
-    "tags": "fault|troubleshooting"
+    "term": "Bus Termination",
+    "definition": "Resistors placed at the ends of a databus to absorb signal energy and prevent reflections that cause data errors.",
+    "analogy": "Like a shock absorber at the end of a track to stop the signal from bouncing back.",
+    "unit": "Bus Design",
+    "tags": "termination|signal_integrity|resistor"
   },
   {
-    "term": "Short Circuit",
-    "definition": "A dangerous fault where current takes an unintended low-resistance path, causing excessive current flow that can trip circuit protection or cause fires [2, 73, 76, 77].",
-    "analogy": "Electrons taking the least resistive path, such as through a carelessly dropped metal wrench across battery terminals [76].",
-    "unit": "DC 103 (Fault)",
-    "tags": "fault|safety"
+    "term": "Parity Bit",
+    "definition": "An extra bit added to data for error detection. ARINC 429 uses odd parity - the total number of 1s in the word must be odd.",
+    "analogy": "A checksum that catches if a bit was accidentally flipped during transmission.",
+    "unit": "Error Detection",
+    "tags": "parity|error_detection|data_integrity"
   },
   {
-    "term": "Voltage Drop",
-    "definition": "The reduction in voltage across a component in a circuit as energy is consumed, calculated using Ohm's Law (V = I $\\times$ R) [2, 47, 63]. High-resistance connections (corrosion) cause unwanted voltage drops [28, 78].",
-    "analogy": "The amount of pressure lost as water passes through a small pipe or filter [6, 62].",
-    "unit": "DC 103 (Concept)",
-    "tags": "troubleshooting"
+    "term": "Signal Ringing",
+    "definition": "Oscillations in a digital signal caused by impedance mismatch or improper termination. Appears as overshoot and undershoot on an oscilloscope.",
+    "analogy": "Like ripples in water when a stone is dropped - unwanted reflections bouncing back.",
+    "unit": "Troubleshooting",
+    "tags": "ringing|impedance|troubleshooting"
   },
   {
-    "term": "Multimeter",
-    "definition": "A handheld test instrument essential for avionics technicians used to measure fundamental electrical quantities: voltage, current, and resistance [2, 59, 79].",
-    "analogy": "The primary diagnostic tool, allowing technicians to interpret electrical system health [59, 80].",
-    "unit": "DC 103 (Tool)",
-    "tags": "tool|measurement"
+    "term": "Jitter",
+    "definition": "Timing instability in a digital signal - variations in when transitions occur. Can cause data errors if excessive.",
+    "analogy": "Like a drummer who can't keep steady time - the rhythm becomes unreliable.",
+    "unit": "Signal Quality",
+    "tags": "jitter|timing|signal_quality"
   },
   {
-    "term": "Measuring Voltage (Procedure)",
-    "definition": "Voltage is measured by connecting the multimeter probes *across* (in parallel with) the component or circuit being tested [2, 6, 7, 51]. This must be done while the circuit is powered ON [81].",
-    "analogy": "Measuring the pressure difference between the inlet and outlet of a device [7].",
-    "unit": "DC 103 (Procedure)",
-    "tags": "multimeter|procedure"
+    "term": "Crosstalk",
+    "definition": "Unwanted electromagnetic coupling between adjacent wires or circuits, causing interference between signals.",
+    "analogy": "Like hearing your neighbor's phone conversation on your line.",
+    "unit": "EMI",
+    "tags": "crosstalk|EMI|interference"
   },
   {
-    "term": "Measuring Current (Procedure)",
-    "definition": "Current is measured by inserting the multimeter *into* (in series with) the circuit, physically breaking the current path so the flow runs through the meter [2, 13, 51, 82, 83]. This must be done carefully to avoid blowing fuses [2, 84].",
-    "analogy": "Cutting a pipe and routing the entire water flow through a flow meter [83, 84].",
-    "unit": "DC 103 (Procedure)",
-    "tags": "multimeter|procedure"
+    "term": "Databus Analyzer",
+    "definition": "Specialized test equipment that captures, decodes, and displays databus traffic. Essential for troubleshooting ARINC 429 and MIL-STD-1553 systems.",
+    "analogy": "A translator that converts databus signals into human-readable information.",
+    "unit": "Test Equipment",
+    "tags": "analyzer|test_equipment|troubleshooting"
   },
   {
-    "term": "Measuring Resistance (Procedure)",
-    "definition": "Resistance is measured by connecting the multimeter probes across the component, but the circuit power must be completely OFF to prevent damage to the meter and ensure accurate results [17, 51, 85].",
-    "analogy": "Checking the impedance of a wire or component when it is completely isolated [85].",
-    "unit": "DC 103 (Procedure)",
-    "tags": "multimeter|procedure"
+    "term": "Oscilloscope",
+    "definition": "Test equipment that displays voltage waveforms over time. Used to analyze signal quality, timing, and amplitude on databuses.",
+    "analogy": "A camera that takes pictures of electrical signals so you can see their shape.",
+    "unit": "Test Equipment",
+    "tags": "oscilloscope|test_equipment|waveform"
   },
   {
-    "term": "Electrostatic Discharge (ESD)",
-    "definition": "The rapid transfer of static electrical charge built up on an object [2, 86]. This poses a serious hazard as it can damage sensitive avionics components like microprocessors [2, 76, 87].",
-    "analogy": "The invisible static shock that can 'fry' delicate circuits [88].",
-    "unit": "DC 101 (Safety)",
-    "tags": "safety|maintenance"
+    "term": "Loopback Test",
+    "definition": "A diagnostic test where a device transmits data and receives it back to verify proper operation. Also called wrap-around test.",
+    "analogy": "Like talking into a voice recorder and playing it back to check if it works.",
+    "unit": "Testing",
+    "tags": "loopback|diagnostics|testing"
   },
   {
-    "term": "ESD Precautions",
-    "definition": "Safety procedures, such as using grounding straps and anti-static mats, designed to safely discharge built-up static electricity before handling sensitive electronics [2, 89].",
-    "analogy": "Grounding oneself to prevent static discharge from destroying microprocessors [89, 90].",
-    "unit": "DC 101 (Safety)",
-    "tags": "safety|maintenance"
+    "term": "Stub Cable",
+    "definition": "A short cable that connects a Remote Terminal to the main MIL-STD-1553 bus through a coupler. Maximum length is typically 20 feet.",
+    "analogy": "Like a short driveway connecting a house to the main road.",
+    "unit": "MIL-STD-1553",
+    "tags": "MIL_STD_1553|stub|wiring"
+  },
+  {
+    "term": "Logic Level",
+    "definition": "The voltage ranges that define digital HIGH (1) and LOW (0) states. Voltages between valid levels are undefined and indicate a fault.",
+    "analogy": "Clear zones with a 'no man's land' in between - signals must be definitively one or the other.",
+    "unit": "Digital Fundamentals",
+    "tags": "logic_level|voltage|threshold"
   }
   ];
 
