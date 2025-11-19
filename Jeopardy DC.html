@@ -422,7 +422,7 @@
 
 <div class="wrap">
   <div class="top">
-    <div class="badge">Electrical Systems Jeopardy — Player vs AI</div>
+    <div class="badge">Digital Logic & Databus Jeopardy — Player vs AI</div>
     <div class="meta">
       <span class="round-indicator" id="roundIndicator">ROUND 1: JEOPARDY</span>
       <span>Tiles left: <span class="kpi" id="qLeft">15</span></span>
@@ -575,372 +575,372 @@
 const QUESTION_BANK = {
   // ==================== ROUND 1: JEOPARDY ====================
 
-  "DC Concepts": [
+  "Binary Basics": [
     {
-      id: "dc-001",
+      id: "bin-001",
       difficulty: 1,
       pointValue: 100,
       timeLimit: 10,
-      question: "This is the unit of measurement for electrical 'pressure' or potential difference.",
-      answers: ["Amperes (Amps)", "Ohms (Ω)", "Volts (V)", "Watts (W)"],
-      correctIndex: 2,
-      explanation: "Voltage (Volts) is the electrical pressure that causes current to flow.",
-      reference: "Fundamentals of DC"
+      question: "In digital systems, binary '1' typically represents this voltage state.",
+      answers: ["LOW or ground", "HIGH or positive", "Negative voltage", "No voltage"],
+      correctIndex: 1,
+      explanation: "Binary 1 represents a HIGH voltage level, typically +5V or +3.3V in digital circuits.",
+      reference: "Digital Fundamentals"
     },
     {
-      id: "dc-002",
+      id: "bin-002",
       difficulty: 2,
       pointValue: 200,
       timeLimit: 12,
-      question: "This is the unit of measurement for the rate of electron flow in a circuit.",
-      answers: ["Amperes (Amps)", "Ohms (Ω)", "Volts (V)", "Watts (W)"],
-      correctIndex: 0,
-      explanation: "Current (Amperes) is the measure of how many electrons flow past a point per second.",
-      reference: "Fundamentals of DC"
+      question: "How many bits are contained in one byte of digital data?",
+      answers: ["4 bits", "8 bits", "16 bits", "32 bits"],
+      correctIndex: 1,
+      explanation: "One byte equals 8 bits, which is a fundamental unit of digital data.",
+      reference: "Digital Data Structure"
     },
     {
-      id: "dc-003",
+      id: "bin-003",
       difficulty: 3,
       pointValue: 300,
       timeLimit: 14,
-      question: "A material, like rubber or plastic, that strongly opposes the flow of current is called:",
-      answers: ["A conductor", "A semiconductor", "A resistor", "An insulator"],
-      correctIndex: 3,
-      explanation: "Insulators have very high resistance and are used to prevent current from flowing where it is not wanted.",
-      reference: "Conductors vs. Insulators"
+      question: "What is the decimal equivalent of the binary number 1100?",
+      answers: ["8", "10", "12", "14"],
+      correctIndex: 2,
+      explanation: "Binary 1100 = 8+4+0+0 = 12 in decimal.",
+      reference: "Binary Conversion"
     },
     {
-      id: "dc-004",
+      id: "bin-004",
       difficulty: 3,
       pointValue: 400,
       timeLimit: 15,
-      question: "This is the unit of measurement for the opposition to current flow.",
-      answers: ["Amperes (Amps)", "Ohms (Ω)", "Volts (V)", "Watts (W)"],
+      question: "What does 'MSB' stand for in digital communications?",
+      answers: ["Main Signal Bus", "Most Significant Bit", "Message Status Byte", "Multiple Serial Bus"],
       correctIndex: 1,
-      explanation: "Resistance (Ohms) is the property that opposes the flow of current.",
-      reference: "Fundamentals of DC"
+      explanation: "MSB (Most Significant Bit) is the bit position with the highest value in a binary number.",
+      reference: "Digital Terminology"
     },
     {
-      id: "dc-005",
+      id: "bin-005",
       difficulty: 4,
       pointValue: 500,
       timeLimit: 18,
-      question: "In 'Direct Current' (DC), the electrons flow in:",
-      answers: ["Two directions, alternating", "One direction only", "A circular, spinning pattern", "High-frequency pulses"],
-      correctIndex: 1,
-      explanation: "Direct Current (DC) is defined by its unidirectional flow, typically from negative to positive.",
-      reference: "AC vs. DC"
+      question: "Why do avionics systems prefer digital (binary) signals over analog?",
+      answers: ["They use less power", "They are immune to all interference", "They resist noise and provide precise data", "They are cheaper to implement"],
+      correctIndex: 2,
+      explanation: "Digital signals are more resistant to electromagnetic noise and provide precise, repeatable data transmission.",
+      reference: "Digital vs Analog"
     }
   ],
 
-  "Ohm's Law": [
+  "Logic Gates": [
     {
-      id: "ohm-001",
+      id: "gate-001",
       difficulty: 1,
       pointValue: 100,
       timeLimit: 10,
-      question: "What is the correct formula for Ohm's Law?",
-      answers: ["V = I x R", "R = V x I", "I = V x R", "P = V x I"],
-      correctIndex: 0,
-      explanation: "Ohm's Law states Voltage (V) equals Current (I) multiplied by Resistance (R).",
-      reference: "Ohm's Law Formula"
+      question: "This logic gate outputs 1 only when ALL inputs are 1.",
+      answers: ["OR gate", "AND gate", "NOT gate", "XOR gate"],
+      correctIndex: 1,
+      explanation: "An AND gate requires all inputs to be HIGH (1) to produce a HIGH output.",
+      reference: "Logic Gate Functions"
     },
     {
-      id: "ohm-002",
+      id: "gate-002",
       difficulty: 2,
       pointValue: 200,
-      timeLimit: 15,
-      question: "A 10-ohm resistor has 2 amps of current flowing through it. What is the voltage drop across it?",
-      answers: ["5 Volts", "12 Volts", "0.2 Volts", "20 Volts"],
-      correctIndex: 3,
-      explanation: "Using V = I x R: 2 Amps * 10 Ohms = 20 Volts.",
-      reference: "Ohm's Law Calculation"
+      timeLimit: 12,
+      question: "An OR gate has inputs A=0 and B=1. What is the output?",
+      answers: ["0", "1", "Undefined", "Error"],
+      correctIndex: 1,
+      explanation: "An OR gate outputs 1 if ANY input is 1. With B=1, the output is 1.",
+      reference: "OR Gate Truth Table"
     },
     {
-      id: "ohm-003",
+      id: "gate-003",
       difficulty: 3,
       pointValue: 300,
-      timeLimit: 15,
-      question: "A 28-volt circuit has a resistance of 7 ohms. How much current is flowing?",
-      answers: ["4 Amps", "196 Amps", "21 Amps", "0.25 Amps"],
-      correctIndex: 0,
-      explanation: "Using I = V / R: 28 Volts / 7 Ohms = 4 Amps.",
-      reference: "Ohm's Law Calculation"
+      timeLimit: 14,
+      question: "What does a NOT gate (inverter) do to its input signal?",
+      answers: ["Amplifies it", "Delays it", "Inverts it (1→0, 0→1)", "Stores it"],
+      correctIndex: 2,
+      explanation: "A NOT gate inverts the input: 1 becomes 0, and 0 becomes 1.",
+      reference: "Inverter Operation"
     },
     {
-      id: "ohm-004",
+      id: "gate-004",
       difficulty: 3,
       pointValue: 400,
       timeLimit: 15,
-      question: "A lamp connected to a 14-volt source draws 2 amps. What is the lamp's resistance?",
-      answers: ["28 Ohms", "12 Ohms", "7 Ohms", "16 Ohms"],
-      correctIndex: 2,
-      explanation: "Using R = V / I: 14 Volts / 2 Amps = 7 Ohms.",
-      reference: "Ohm's Law Calculation"
+      question: "A NAND gate with inputs A=1 and B=1 produces what output?",
+      answers: ["1", "0", "Undefined", "Oscillating"],
+      correctIndex: 1,
+      explanation: "NAND = AND + NOT. 1 AND 1 = 1, then inverted = 0.",
+      reference: "NAND Gate Truth Table"
     },
     {
-      id: "ohm-005",
+      id: "gate-005",
       difficulty: 4,
       pointValue: 500,
       timeLimit: 18,
-      question: "In a circuit with constant voltage, if you double the resistance, what happens to the current?",
-      answers: ["It doubles", "It stays the same", "It is cut in half", "It becomes zero"],
+      question: "This logic gate outputs 1 only when inputs are DIFFERENT from each other.",
+      answers: ["AND gate", "OR gate", "XOR gate", "NOR gate"],
       correctIndex: 2,
-      explanation: "Current and resistance are inversely proportional (I = V/R). If R doubles, I is halved.",
-      reference: "Ohm's Law Relationships"
+      explanation: "XOR (Exclusive OR) outputs 1 when inputs differ (0,1 or 1,0) and 0 when they match.",
+      reference: "XOR Gate Function"
     }
   ],
 
-  "The Power Law": [
+  "ARINC 429": [
     {
-      id: "pwr-001",
+      id: "a429-001",
       difficulty: 1,
       pointValue: 100,
       timeLimit: 10,
-      question: "What is the basic formula for electrical power (Watt's Law)?",
-      answers: ["P = I x R", "P = V / I", "P = V x I", "P = V / R"],
-      correctIndex: 2,
-      explanation: "Power (P) in Watts equals Voltage (V) multiplied by Current (I).",
-      reference: "Power Law Formula"
+      question: "ARINC 429 uses this type of bus topology.",
+      answers: ["Multi-drop bidirectional", "Point-to-point unidirectional", "Ring network", "Star topology"],
+      correctIndex: 1,
+      explanation: "ARINC 429 is point-to-point: one transmitter sends to multiple receivers (unidirectional).",
+      reference: "ARINC 429 Architecture"
     },
     {
-      id: "pwr-002",
+      id: "a429-002",
       difficulty: 2,
       pointValue: 200,
-      timeLimit: 15,
-      question: "A 28V circuit is drawing 10 amps. How much power is being consumed?",
-      answers: ["2.8 Watts", "280 Watts", "38 Watts", "0.35 Watts"],
-      correctIndex: 1,
-      explanation: "Using P = V x I: 28 Volts * 10 Amps = 280 Watts.",
-      reference: "Power Law Calculation"
+      timeLimit: 12,
+      question: "What is the word length of an ARINC 429 data transmission?",
+      answers: ["8 bits", "16 bits", "32 bits", "64 bits"],
+      correctIndex: 2,
+      explanation: "ARINC 429 uses 32-bit data words for all transmissions.",
+      reference: "ARINC 429 Word Format"
     },
     {
-      id: "pwr-003",
+      id: "a429-003",
       difficulty: 3,
       pointValue: 300,
-      timeLimit: 15,
-      question: "What is the alternate formula for power when you only know current and resistance?",
-      answers: ["P = I² / R", "P = R² / I", "P = I x R²", "P = I² x R"],
-      correctIndex: 3,
-      explanation: "Since V = IR, substitute (IR) for V in P=VI, which gives P = (IR)I, or P = I²R.",
-      reference: "Power Law Formula"
+      timeLimit: 14,
+      question: "What are the two standard bit rates for ARINC 429?",
+      answers: ["1 kbps and 10 kbps", "12.5 kbps and 100 kbps", "100 kbps and 1 Mbps", "1 Mbps and 10 Mbps"],
+      correctIndex: 1,
+      explanation: "ARINC 429 operates at Low Speed (12.5 kbps) or High Speed (100 kbps).",
+      reference: "ARINC 429 Bit Rates"
     },
     {
-      id: "pwr-004",
+      id: "a429-004",
       difficulty: 3,
       pointValue: 400,
-      timeLimit: 18,
-      question: "A 100-ohm resistor has 2 amps flowing through it. How much power is it dissipating?",
-      answers: ["200 Watts", "50 Watts", "400 Watts", "0.02 Watts"],
+      timeLimit: 15,
+      question: "In ARINC 429, bits 1-8 contain this identifying information.",
+      answers: ["Parity check", "Data payload", "Label (data type)", "Status matrix"],
       correctIndex: 2,
-      explanation: "Using P = I² x R: (2 Amps * 2 Amps) * 100 Ohms = 400 Watts.",
-      reference: "Power Law Calculation"
+      explanation: "The Label field (bits 1-8) identifies the type of data in the word, expressed in octal.",
+      reference: "ARINC 429 Word Structure"
     },
     {
-      id: "pwr-005",
+      id: "a429-005",
       difficulty: 4,
       pointValue: 500,
       timeLimit: 18,
-      question: "What is the alternate formula for power when you only know voltage and resistance?",
-      answers: ["P = V² / R", "P = R² / V", "P = V x R²", "P = V² x R"],
-      correctIndex: 0,
-      explanation: "Since I = V/R, substitute (V/R) for I in P=VI, which gives P = V(V/R), or P = V²/R.",
-      reference: "Power Law Formula"
+      question: "What are the three valid voltage states in ARINC 429 signaling?",
+      answers: ["+5V, 0V, -5V", "+10V, 0V (NULL), -10V", "+12V, 0V, -12V", "+28V, 0V, -28V"],
+      correctIndex: 1,
+      explanation: "ARINC 429 uses three states: HIGH (+10V), NULL (0V), and LOW (-10V).",
+      reference: "ARINC 429 Signal Levels"
     }
   ],
 
   // ==================== ROUND 2: DOUBLE JEOPARDY ====================
 
-  "Series Circuits": [
+  "MIL-STD-1553": [
     {
-      id: "ser-201",
+      id: "mil-201",
       difficulty: 2,
       pointValue: 200,
       timeLimit: 12,
-      question: "In a series circuit, the total resistance (Rt) is calculated by:",
-      answers: ["Averaging all resistors", "Using the smallest resistor value", "Adding all individual resistances", "Rt = (R1*R2)/(R1+R2)"],
-      correctIndex: 2,
-      explanation: "In a series circuit, resistances add up: Rt = R1 + R2 + R3 + ...",
-      reference: "Series Circuit Rules"
+      question: "What is the data rate of the MIL-STD-1553 databus?",
+      answers: ["100 kbps", "1 Mbps", "10 Mbps", "100 Mbps"],
+      correctIndex: 1,
+      explanation: "MIL-STD-1553 operates at 1 Megabit per second (1 Mbps).",
+      reference: "MIL-STD-1553 Specifications"
     },
     {
-      id: "ser-202",
+      id: "mil-202",
       difficulty: 3,
       pointValue: 400,
       timeLimit: 14,
-      question: "What is the rule for current in a series circuit?",
-      answers: ["It is the same through all components", "It divides at each component", "It is highest at the last component", "It is zero at the end of the loop"],
-      correctIndex: 0,
-      explanation: "A series circuit has only one path, so the current (flow) must be the same everywhere.",
-      reference: "Series Circuit Rules"
+      question: "This device controls all communication on a MIL-STD-1553 bus.",
+      answers: ["Remote Terminal", "Bus Monitor", "Bus Controller", "Data Terminal"],
+      correctIndex: 2,
+      explanation: "The Bus Controller (BC) initiates and controls all data transfers on the bus.",
+      reference: "MIL-STD-1553 Architecture"
     },
     {
-      id: "ser-203",
+      id: "mil-203",
       difficulty: 4,
       pointValue: 600,
       timeLimit: 16,
-      question: "Three resistors are in series: 10 ohms, 20 ohms, and 30 ohms. What is the total resistance?",
-      answers: ["30 Ohms", "5.45 Ohms", "60 Ohms", "6000 Ohms"],
-      correctIndex: 2,
-      explanation: "Rt = R1 + R2 + R3. 10 + 20 + 30 = 60 Ohms.",
-      reference: "Series Circuit Calculation"
+      question: "What is the maximum number of Remote Terminals (RTs) on a MIL-STD-1553 bus?",
+      answers: ["16", "31", "64", "128"],
+      correctIndex: 1,
+      explanation: "MIL-STD-1553 supports up to 31 RTs (addresses 0-30, with 31 reserved for broadcast).",
+      reference: "MIL-STD-1553 Addressing"
     },
     {
-      id: "ser-204",
+      id: "mil-204",
       difficulty: 4,
       pointValue: 800,
       timeLimit: 18,
-      question: "This law states that the sum of all voltage drops in a series loop equals the source voltage.",
-      answers: ["Ohm's Law", "Kirchhoff's Current Law (KCL)", "Watt's Law", "Kirchhoff's Voltage Law (KVL)"],
-      correctIndex: 3,
-      explanation: "Kirchhoff's Voltage Law (KVL) describes how voltage is distributed in a closed loop.",
-      reference: "Kirchhoff's Voltage Law"
+      question: "Why does MIL-STD-1553 use dual redundant buses?",
+      answers: ["To double data speed", "For fault tolerance", "To reduce EMI", "For longer cable runs"],
+      correctIndex: 1,
+      explanation: "Dual redundant buses provide fault tolerance - if one fails, the backup maintains communication.",
+      reference: "MIL-STD-1553 Redundancy"
     },
     {
-      id: "ser-205",
+      id: "mil-205",
       difficulty: 5,
       pointValue: 1000,
       timeLimit: 20,
-      question: "If one of three bulbs connected in series burns out (fails open), what happens to the other two?",
-      answers: ["They get brighter", "They get dimmer", "They both go out", "They are unaffected"],
-      correctIndex: 2,
-      explanation: "A burned-out bulb creates an open circuit, breaking the only path for current and stopping all flow.",
-      reference: "Series Circuit Troubleshooting"
+      question: "What is the word length in MIL-STD-1553?",
+      answers: ["16 bits", "20 bits", "24 bits", "32 bits"],
+      correctIndex: 1,
+      explanation: "MIL-STD-1553 uses 20-bit words: 16 data bits + 3 sync bits + 1 parity bit.",
+      reference: "MIL-STD-1553 Data Format"
     }
   ],
 
-  "Parallel Circuits": [
+  "Signal Analysis": [
     {
-      id: "par-201",
+      id: "sig-201",
       difficulty: 2,
       pointValue: 200,
       timeLimit: 12,
-      question: "What is the rule for voltage in a parallel circuit?",
-      answers: ["It is the same across all branches", "It divides equally among all branches", "It is zero across all branches", "It is highest at the first branch"],
-      correctIndex: 0,
-      explanation: "Components in parallel are connected across the same two points, so they must have the same voltage.",
-      reference: "Parallel Circuit Rules"
+      question: "What does a clean square wave on a databus oscilloscope trace indicate?",
+      answers: ["Bus fault", "Normal operation", "Open circuit", "EMI problem"],
+      correctIndex: 1,
+      explanation: "A clean square wave indicates normal digital signal transmission with proper timing.",
+      reference: "Signal Interpretation"
     },
     {
-      id: "par-202",
+      id: "sig-202",
       difficulty: 3,
       pointValue: 400,
       timeLimit: 14,
-      question: "This law states that the total current entering a junction must equal the total current leaving it.",
-      answers: ["Ohm's Law", "Kirchhoff's Current Law (KCL)", "Watt's Law", "Kirchhoff's Voltage Law (KVL)"],
-      correctIndex: 1,
-      explanation: "Kirchhoff's Current Law (KCL) describes how current splits in parallel branches.",
-      reference: "Kirchhoff's Current Law"
+      question: "Signal 'ringing' on a databus trace indicates this type of problem.",
+      answers: ["Power supply issue", "Software error", "Impedance mismatch/termination fault", "Clock failure"],
+      correctIndex: 2,
+      explanation: "Ringing is caused by impedance mismatch or improper termination causing signal reflections.",
+      reference: "Signal Troubleshooting"
     },
     {
-      id: "par-203",
+      id: "sig-203",
       difficulty: 4,
       pointValue: 600,
       timeLimit: 16,
-      question: "Two 10-ohm resistors are in parallel. What is their total resistance?",
-      answers: ["20 Ohms", "10 Ohms", "5 Ohms", "0 Ohms"],
+      question: "What is the purpose of bus termination resistors?",
+      answers: ["Amplify weak signals", "Filter noise", "Absorb reflections and prevent data errors", "Reduce power consumption"],
       correctIndex: 2,
-      explanation: "Using (R1*R2)/(R1+R2): (10*10)/(10+10) = 100/20 = 5 Ohms. Total R is always less than the smallest branch.",
-      reference: "Parallel Circuit Calculation"
+      explanation: "Termination resistors absorb signal energy to prevent reflections that cause data errors.",
+      reference: "Bus Termination"
     },
     {
-      id: "par-204",
+      id: "sig-204",
       difficulty: 4,
       pointValue: 800,
       timeLimit: 18,
-      question: "In a parallel circuit, total current (It) is calculated by:",
-      answers: ["Using the smallest branch current", "Averaging all branch currents", "Adding all individual branch currents", "It = I1 x I2 x I3..."],
-      correctIndex: 2,
-      explanation: "Total current is the sum of the currents in each branch: It = I1 + I2 + I3 + ...",
-      reference: "Parallel Circuit Rules"
+      question: "Reduced signal amplitude on a databus typically indicates:",
+      answers: ["Normal aging", "Cable damage or connector corrosion", "Too many receivers", "High data rate"],
+      correctIndex: 1,
+      explanation: "Low amplitude is often caused by cable damage, connector corrosion, or failing transmitter.",
+      reference: "Signal Amplitude Issues"
     },
     {
-      id: "par-205",
+      id: "sig-205",
       difficulty: 5,
       pointValue: 1000,
       timeLimit: 20,
-      question: "If one of three bulbs connected in parallel burns out (fails open), what happens to the other two?",
-      answers: ["They get brighter", "They get dimmer", "They both go out", "They are unaffected"],
-      correctIndex: 3,
-      explanation: "Each parallel branch is independent. An open in one branch does not affect the others.",
-      reference: "Parallel Circuit Troubleshooting"
+      question: "What does 'jitter' in a digital signal indicate?",
+      answers: ["Amplitude variation", "Frequency change", "Timing instability", "Polarity reversal"],
+      correctIndex: 2,
+      explanation: "Jitter is timing instability - variations in when signal transitions occur.",
+      reference: "Signal Quality"
     }
   ],
 
-  "Multimeter & Troubleshooting": [
+  "Databus Troubleshooting": [
     {
-      id: "mtr-201",
+      id: "tbl-201",
       difficulty: 2,
       pointValue: 200,
       timeLimit: 12,
-      question: "To measure voltage (VDC), a multimeter must be connected:",
-      answers: ["In series with the circuit", "In parallel (across) the component", "With the circuit power OFF", "In the AMPS jack"],
+      question: "An ARINC 429 receiver shows no data. What is the first troubleshooting step?",
+      answers: ["Replace the receiver LRU", "Check transmitter operation", "Replace all wiring", "Swap bus addresses"],
       correctIndex: 1,
-      explanation: "Voltage is a measurement of potential difference, so the meter must be placed in parallel (across) the points.",
-      reference: "Multimeter Usage"
+      explanation: "First verify the transmitting LRU is powered and operating correctly before suspecting the receiver.",
+      reference: "ARINC 429 Troubleshooting"
     },
     {
-      id: "mtr-202",
+      id: "tbl-202",
       difficulty: 3,
       pointValue: 400,
       timeLimit: 14,
-      question: "To measure current (AMPS), a multimeter must be connected:",
-      answers: ["In series (in-line) with the circuit", "In parallel (across) the component", "With the circuit power OFF", "In the VOLTS jack"],
-      correctIndex: 0,
-      explanation: "Current is a measure of flow, so the circuit must be opened and the meter placed in series (in-line).",
-      reference: "Multimeter Usage"
+      question: "Multiple LRUs on a MIL-STD-1553 bus fail simultaneously. The likely cause is:",
+      answers: ["All LRUs failed at once", "Software bug", "Bus Controller or main cable fault", "Power surge"],
+      correctIndex: 2,
+      explanation: "When multiple devices fail, suspect the Bus Controller or the main bus cable/termination.",
+      reference: "MIL-STD-1553 Troubleshooting"
     },
     {
-      id: "mtr-203",
+      id: "tbl-203",
       difficulty: 4,
       pointValue: 600,
       timeLimit: 16,
-      question: "What is the most critical safety step before measuring resistance (Ohms)?",
-      answers: ["Set the meter to the highest range", "Verify the meter's battery is good", "Ensure all circuit power is OFF", "Use alligator clips for safety"],
-      correctIndex: 2,
-      explanation: "An ohmmeter sends its own voltage. Measuring a powered circuit will, at minimum, destroy the meter.",
-      reference: "Multimeter Safety"
+      question: "What is the purpose of a 'loopback' or 'wrap-around' test?",
+      answers: ["Test cable length", "Verify device can transmit and receive its own data", "Check power supply", "Measure bit rate"],
+      correctIndex: 1,
+      explanation: "A loopback test verifies a device can transmit and receive its own data correctly.",
+      reference: "Diagnostic Testing"
     },
     {
-      id: "mtr-204",
+      id: "tbl-204",
       difficulty: 4,
       pointValue: 800,
       timeLimit: 18,
-      question: "A technician reads 'OL' or 'Infinity' on their ohmmeter when checking a wire. This indicates:",
-      answers: ["A 'short circuit' to ground", "A good, low-resistance wire", "An 'open circuit' or break", "The wire has high current"],
+      question: "Before replacing an LRU for databus faults, you should first:",
+      answers: ["Order a replacement", "Update software", "Check wiring, connectors, and terminations", "Replace all related LRUs"],
       correctIndex: 2,
-      explanation: "'OL' (Over Limit) means the resistance is too high to measure, indicating a break (an open circuit).",
-      reference: "Troubleshooting Opens"
+      explanation: "Always verify wiring, connectors, and terminations before condemning an LRU.",
+      reference: "Troubleshooting Best Practices"
     },
     {
-      id: "mtr-205",
+      id: "tbl-205",
       difficulty: 5,
       pointValue: 1000,
       timeLimit: 20,
-      question: "A technician reads 0.2 Ohms when measuring from a wire to the aircraft airframe. This indicates:",
-      answers: ["A 'short circuit' to ground", "A good, isolated wire", "An 'open circuit' in the wire", "The wire's normal resistance"],
-      correctIndex: 0,
-      explanation: "A very low resistance path from a wire to ground (airframe) is the definition of a short circuit.",
-      reference: "Troubleshooting Shorts"
+      question: "A databus analyzer shows intermittent parity errors. What should you inspect?",
+      answers: ["Software version", "Connector pins for corrosion or loose contacts", "LRU part number", "Bus address settings"],
+      correctIndex: 1,
+      explanation: "Intermittent parity errors often indicate connector issues: corrosion, loose contacts, or damaged wiring.",
+      reference: "Intermittent Fault Diagnosis"
     }
   ],
 
   // ==================== FINAL JEOPARDY ====================
 
   FINAL: {
-    cat: "Applied Circuit Troubleshooting",
+    cat: "Applied Databus Troubleshooting",
     difficulty: 5,
     timeLimit: 30,
-    question: "A component does not work. A technician measures 28V at the component's positive terminal and 26V at its ground terminal (relative to airframe). The circuit breaker is NOT tripped. What is the most likely fault?",
+    question: "A single Remote Terminal on a MIL-STD-1553 bus fails to respond, but all other RTs communicate normally. The RT was just replaced and the problem persists. What is the most likely cause?",
     answers: [
-      "A short circuit in the power wire",
-      "A high-resistance (open) ground connection",
-      "A failed (open) component",
-      "A shorted (failed) component"
+      "Bus Controller failure",
+      "Main bus cable damage",
+      "Stub cable, coupler, or RT address setting problem",
+      "Termination resistor failure"
     ],
-    correctIndex: 1,
-    explanation: "A good ground should read near 0V. Reading 26V on the ground wire means the ground path is open or has high resistance, and the voltage is 'floating' up to the supply voltage.",
-    reference: "Troubleshooting Ground Faults"
+    correctIndex: 2,
+    explanation: "When one RT fails but others work, and a replacement didn't fix it, the problem is in the stub cable, coupler, or RT address setting - components specific to that terminal's connection.",
+    reference: "MIL-STD-1553 Fault Isolation"
   }
 };
 
